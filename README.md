@@ -20,7 +20,7 @@ You can download the nf-fluab from github to local computer or you can directly 
 
 ```
 # running directly from github without downloading or cloning
-nextflow run xiaoli-dong/nf-pathotax -r 7f72d6c --help
+nextflow run xiaoli-dong/nf-pathotax -r 3b24c06 --help
 ```
 ## Quick Start
 >If you are new to Nextflow and nf-core, please refer to [this page](https://nf-co.re/docs/usage/installation) on how to set-up Nextflow. Make sure to [test your setup](https://nf-co.re/docs/usage/introduction#how-to-run-a-pipeline) with -profile test before running the workflow on actual data.
@@ -48,7 +48,7 @@ assembly1,./raw/sample1_gas.contigs.fa.gz,
 Now, you can run the pipeline using:
 
 ```bash
-nextflow run xiaoli-dong/nf-pathotax -profile singularity --input samplesheet.csv --datatype <reads or genomes> --platform illumina --outdir results --platform <illumina or nanopore> -resume
+nextflow run xiaoli-dong/nf-pathotax -r 3b24c06 -profile singularity --input samplesheet.csv --datatype <reads or genomes> --platform illumina --outdir results --platform <illumina or nanopore> -resume
 
 ```
 
