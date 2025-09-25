@@ -1,0 +1,8 @@
+sample,fastq_1,fastq_2
+S1,./raw/1_S1_L001_R1_001.fastq.gz,./raw/1_S1_L001_R2_001.fastq.gz
+S10,./raw/10_S10_L001_R1_001.fastq.gz,./raw/10_S10_L001_R2_001.fastq.gz
+S20,./raw/20_S20_L001_R1_001.fastq.gz,./raw/20_S20_L001_R2_001.fastq.gz
+S30,./raw/30_S30_L001_R1_001.fastq.gz,./raw/30_S30_L001_R2_001.fastq.gz
+bact,./raw/24_S24_L001_R1_001.fastq.gz,./raw/24_S24_L001_R2_001.fastq.gz
+barcode56,./raw/barcode56.fastq.gz,
+barcode14,./raw/barcode14.fastq.gz,

@@ -1,0 +1,2 @@
+/var/spool/slurm/slurmd/job10746/slurm_script: line 11: syntax error near unexpected token `5'
+/var/spool/slurm/slurmd/job10746/slurm_script: line 11: `sleep(5)'
