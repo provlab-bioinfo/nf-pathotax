@@ -16,7 +16,7 @@ The pipeline takes a samplesheet and corresponding quality controlled FASTQ/FAST
 5. [gtdb-tk database](https://ecogenomics.github.io/GTDBTk/installing/index.html)
 
 ### Check pipeline command line options
-You can download the nf-fluab from github to local computer or you can directly run the pipeline from github remotely. The following is an example how to check the command line options without downloading the pipeline locally:
+You can download the nf-pathotax from github to local computer or you can directly run the pipeline from github remotely. The following is an example how to check the command line options without downloading the pipeline locally:
 
 ```
 # running directly from github without downloading or cloning
@@ -25,7 +25,7 @@ nextflow run xiaoli-dong/nf-pathotax -r 3b24c06 --help
 ## Quick Start
 >If you are new to Nextflow and nf-core, please refer to [this page](https://nf-co.re/docs/usage/installation) on how to set-up Nextflow. Make sure to [test your setup](https://nf-co.re/docs/usage/introduction#how-to-run-a-pipeline) with -profile test before running the workflow on actual data.
 
-To run the analysis with your data, prepare a csv format samplesheet, which contains the sequenence information for each of your samples, as input. The samplesheet can contain only Illumina data or only nanopore data, it cannot not accept data from both Illumina and nanopore data in one analysis. See below for what the samplesheet looks like:
+To run the analysis with your data, prepare a csv format samplesheet, which contains the sequenence information for each of your samples, as input. The samplesheet can contain only sequence reads or only assembled contigs/genomes, it cannot not accept data from both quality controlled sequence reads or assembled contigs in one analysis. See below for what the samplesheet looks like:
 
 Illumina or nanopore reads analysis sample sheet example
 ```
