@@ -15,19 +15,21 @@ The pipeline takes a samplesheet and corresponding quality controlled FASTQ/FAST
 4. [singleM Database](https://wwood.github.io/singlem/tools/data)
 5. [gtdb-tk database](https://ecogenomics.github.io/GTDBTk/installing/index.html)
 
-### Check pipeline command line options
-You can download the nf-pathotax from github to local computer or you can directly run the pipeline from github remotely. The following is an example how to check the command line options without downloading the pipeline locally:
 
-```
-# running directly from github without downloading or cloning
-nextflow run xiaoli-dong/nf-pathotax -r 3b24c06 --help
-```
 ## Quick Start
 >If you are new to Nextflow and nf-core, please refer to [this page](https://nf-co.re/docs/usage/installation) on how to set-up Nextflow. Make sure to [test your setup](https://nf-co.re/docs/usage/introduction#how-to-run-a-pipeline) with -profile test before running the workflow on actual data.
 
-To run the analysis with your data, prepare a csv format samplesheet, which contains the sequenence information for each of your samples, as input. The samplesheet can contain only sequence reads or only assembled contigs/genomes, it cannot not accept data from both quality controlled sequence reads or assembled contigs in one analysis. See below for what the samplesheet looks like:
+### Check workflow options
+You can clone or download the nf-pathotax from github to local computer or you can directly run the pipeline from github. To check the pipeline command line options:
 
-Illumina or nanopore reads analysis sample sheet example
+```{r df-drop-ok, class.source="bg-success"}
+# running directly from github without downloading or cloning
+nextflow run xiaoli-dong/nf-pathotax -r revision_number(e.g:1000908) --help
+```
+### Prepare required samplesheet input
+The nf-pathotax pipeline requires user to provide a csv format samplesheet, which contains the sequenence information for each of your samples, as input. The samplesheet can contain only sequence reads or only assembled contigs/genomes, it cannot not accept data from both quality controlled sequence reads or assembled contigs in one analysis. See below for what the samplesheet looks like:
+
+`samplesheet.csv` for Illumina or nanopore reads analysis example
 ```
 sample,fastq_1,fastq_2
 S1,./raw/1_S1_L001_R1_001.fastq.gz,./raw/1_S1_L001_R2_001.fastq.gz
@@ -39,18 +41,39 @@ barcode56,./raw/barcode56.fastq.gz,
 barcode14,./raw/barcode14.fastq.gz,
 ```
 
-Assembled contigs/genomes data analysis sample sheet example
+`samplesheet.csv` for assembled contigs/genomes data analysis
 ```
 sample,fastq_1,fastq_2
 assembly1,./raw/sample1_gas.contigs.fa.gz,
 ```
 
+### Run the pipeline:
 Now, you can run the pipeline using:
 
-```bash
-nextflow run xiaoli-dong/nf-pathotax -r 3b24c06 -profile singularity --input samplesheet.csv --datatype <reads or genomes> --platform illumina --outdir results --platform <illumina or nanopore> -resume
+<!-- TODO nf-core: update the following command to include all required parameters for a minimal example -->
 
+```bash
+
+# Example command to run the pipeline from local download for sequence reads
+nextflow run nf-pathotax/main.nf \
+  -profile singularity \
+  --input samplesheet.csv \
+  --datatype reads \
+  --platforom illumina \
+  --outdir results \
+  -resume
+
+# Example command to run the pipeline from local download for assembled contigs
+nextflow run nf-pathotax/main.nf \
+  -profile singularity \
+  --input samplesheet.csv \
+  --datatype genomes \
+  --outdir results \
+  -resume
 ```
+
+>* Notes: Please provide pipeline parameters via the CLI or Nextflow `-params-file` option. Custom config files including those provided by the `-c` Nextflow option can be used to provide any configuration _**except for parameters**_; see [docs](https://nf-co.re/docs/usage/getting_started/configuration#custom-configuration-files).
+
 
 ## Credits
 
